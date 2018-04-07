@@ -282,7 +282,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\GameInit.cs" />
+    <Compile Include="Assets\Script\GameStateManager.cs" />
     <Compile Include="Assets\Script\LiveManager.cs" />
     <Compile Include="Assets\Script\SoundManager.cs" />
   </ItemGroup>
