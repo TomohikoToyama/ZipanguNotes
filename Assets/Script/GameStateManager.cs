@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour {
 
-    //
+    string currentScene = "Title"; //現在のシーン.
+    
 
     // Use this for initialization
     void Start() {
@@ -17,8 +19,10 @@ public class GameStateManager : MonoBehaviour {
     }
 
     //シーン遷移処理
-    void ChangeScene() { 
+    public void ChangeScene() { 
 
+        if( currentScene == "Title")
+            SceneManager.LoadScene("Home");
 
     }
 }
