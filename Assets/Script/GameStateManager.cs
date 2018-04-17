@@ -5,30 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour {
 
-    float distance = 200;
+    float distance = 1000;
     [SerializeField]
     string currentScene = "Title"; //現在のシーン.
+    [SerializeField]
     string objectName =""; //タップしたオブジェクト名.
-    
+    Vector3 tapPosition;
 
     // Use this for initialization
     void Start() {
+        DontDestroyOnLoad(this);
+
 
     }
 
     // Update is called once per frame
     void Update() {
-        DontDestroyOnLoad(this);
+
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 tapPoint  = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D collition2d  = Physics2D.OverlapPoint(tapPoint);
+            if (collition2d)
+            {
+                RaycastHit2D hitObject = Physics2D.Raycast(tapPoint, -Vector2.up);
+                if (hitObject)
+                {
+                    Debug.Log("hit object is " + hitObject.collider.gameObject.name);
+                }
+            }
+        }
     }
 
     //シーン遷移処理(仮)
     public void ChangeScene() {
 
         //タイトル画面でボタン以外タップした場合
-        if (currentScene == "Title")
-            currentScene = "Home";
-            SceneManager.LoadScene("Home");
-
+        if (currentScene == "Title") { 
+        currentScene = "Home";
+        SceneManager.LoadScene("Home");
+        }
         if( currentScene == "Home")
         {
             /*
@@ -38,20 +56,7 @@ public class GameStateManager : MonoBehaviour {
              */
 
             
-            // タップを取得
-            if (Input.GetMouseButtonDown(0))
-            {
-                // タップ座標をrayに変換
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                // Rayの当たったオブジェクトの情報を格納する
-                RaycastHit hit = new RaycastHit();
-                // オブジェクトにrayが当たった時
-                if (Physics.Raycast(ray, out hit, distance))
-                {
-                    // rayが当たったオブジェクトの名前を取得
-                    objectName = hit.collider.gameObject.name;
-                    Debug.Log(objectName);
-                }
+           
 
                 if(objectName == "Home")
 
@@ -62,7 +67,6 @@ public class GameStateManager : MonoBehaviour {
                     SceneManager.LoadScene("Other");
 
 
-            }
         }
 
     }
