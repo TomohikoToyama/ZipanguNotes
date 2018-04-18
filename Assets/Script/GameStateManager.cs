@@ -12,10 +12,41 @@ public class GameStateManager : MonoBehaviour {
     string objectName =""; //タップしたオブジェクト名.
     Vector3 tapPosition;
 
+
+    protected static GameStateManager instance;
+
+    public static GameStateManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = (GameStateManager)FindObjectOfType(typeof(GameStateManager));
+
+                if (instance == null)
+                {
+                    Debug.LogError("SoundManager Instance Error");
+                }
+            }
+
+            return instance;
+        }
+    }
+
     // Use this for initialization
     void Start() {
-        DontDestroyOnLoad(this);
 
+        GameObject[] obj = GameObject.FindGameObjectsWithTag("GameStateManager");
+        if (obj.Length > 1)
+        {
+            //既に存在してるなら削除
+            Destroy(gameObject);
+        }
+        else
+        {
+            //管理マネージャーはシーン遷移では破棄させない
+            DontDestroyOnLoad(gameObject);
+        }
 
     }
 
@@ -23,7 +54,7 @@ public class GameStateManager : MonoBehaviour {
     void Update() {
 
 
-
+            /*
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 tapPoint  = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -37,16 +68,25 @@ public class GameStateManager : MonoBehaviour {
                 }
             }
         }
+        */
     }
 
+    //シーン名取得
+    public string getSceneName()
+    {
+        return currentScene;
+
+    }
     //シーン遷移処理(仮)
-    public void ChangeScene() {
+    public void ChangeScene(string sceneName ) {
 
         //タイトル画面でボタン以外タップした場合
+
         if (currentScene == "Title") { 
-        currentScene = "Home";
-        SceneManager.LoadScene("Home");
+            currentScene = "Home";
+            SceneManager.LoadScene("Home");
         }
+
         if( currentScene == "Home")
         {
             /*
@@ -54,17 +94,10 @@ public class GameStateManager : MonoBehaviour {
              * 
              *
              */
-
-            
            
 
-                if(objectName == "Home")
-
-                if (objectName == "Live")
-                        SceneManager.LoadScene("Live");
-
-                if (objectName == "Other")
-                    SceneManager.LoadScene("Other");
+            currentScene = sceneName;
+            SceneManager.LoadScene(sceneName);
 
 
         }

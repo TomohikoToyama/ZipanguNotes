@@ -11,19 +11,11 @@ public class GlobalMenuButton : MonoBehaviour {
     //ボタンを押したときの処理
     public void OnClick()
     {
-        switch (transform.name)
+        if (GameStateManager.Instance.getSceneName() != transform.name)
         {
-            case "Home":
-                Debug.Log("ホーム");
-                break;
-            case "Live":
-                Debug.Log("ライブ");
-                break;
-            case "Other":
-                Debug.Log("アザー");
-                break;
-            default:
-                break;
-        }
+           
+                    Debug.Log(transform.name);
+                    GameStateManager.Instance.ChangeScene(transform.name);
+         }
     }
 }
