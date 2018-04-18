@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalMenuButton : MonoBehaviour {
+public class GlobalButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 		
 	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
     //ボタンを押したときの処理
-    public void OnClick()
+    public void GlobalBUttonClick()
     {
         switch (transform.name)
         {
