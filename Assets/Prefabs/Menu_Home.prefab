@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222589199034097278}
   - component: {fileID: 114922686680258630}
   - component: {fileID: 114190617594905314}
-  - component: {fileID: 114590238000081376}
+  - component: {fileID: 114152627315524164}
   m_Layer: 0
   m_Name: Menu_Home
   m_TagString: Untagged
@@ -30,6 +30,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114152627315524164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535397267343596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4306ff5238abeab4eb4c49968b883332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114190617594905314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,17 +93,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114590238000081376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535397267343596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3872c8884706584aa4e3375e98dd970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114922686680258630
 MonoBehaviour:
   m_ObjectHideFlags: 1
