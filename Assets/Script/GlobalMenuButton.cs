@@ -11,7 +11,7 @@ public class GlobalMenuButton : MonoBehaviour {
     //ボタンを押したときの処理
     public void OnClick()
     {
-        if (GameStateManager.Instance.getSceneName() != transform.name)
+        if (GameStateManager.Instance.GetCurrentSceneName() != transform.name)
         {
            
                     Debug.Log(transform.name);

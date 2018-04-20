@@ -7,7 +7,9 @@ public class GameStateManager : MonoBehaviour {
 
     float distance = 1000;
     [SerializeField]
-    string currentScene = "Title"; //現在のシーン.
+    private string currentScene = "Title"; //現在のシーン.
+    [SerializeField]
+    private string beforeScene  = "Title";
     [SerializeField]
     string objectName =""; //タップしたオブジェクト名.
     Vector3 tapPosition;
@@ -25,7 +27,7 @@ public class GameStateManager : MonoBehaviour {
 
                 if (instance == null)
                 {
-                    Debug.LogError("SoundManager Instance Error");
+                    Debug.LogError("GameStateManager Instance Error");
                 }
             }
 
@@ -72,35 +74,44 @@ public class GameStateManager : MonoBehaviour {
     }
 
     //シーン名取得
-    public string getSceneName()
+    public string GetCurrentSceneName()
     {
         return currentScene;
 
     }
+
+    //前のシーン名取得
+    public string GetBeforeSceneName()
+    {
+        return beforeScene;
+
+    }
+
     //シーン遷移処理(仮)
     public void ChangeScene(string sceneName ) {
 
         //タイトル画面でボタン以外タップした場合
 
-        if (currentScene == "Title") { 
+        if (currentScene == "Title") {
+            beforeScene = currentScene;
             currentScene = "Home";
             SceneManager.LoadScene("Home");
         }
 
         if( currentScene == "Home")
         {
-            /*
-             * 
-             * 
-             *
-             */
-           
-
+            beforeScene = currentScene;
             currentScene = sceneName;
             SceneManager.LoadScene(sceneName);
 
-
         }
 
+    }
+
+    //戻るボタンが押された時のシーン遷移
+    public void BackScene()
+    {
+        currentScene = beforeScene;
+        SceneManager.LoadScene(currentScene);
     }
 }

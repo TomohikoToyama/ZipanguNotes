@@ -292,6 +292,7 @@
     <Compile Include="Assets\Script\GameStateManager.cs" />
     <Compile Include="Assets\Script\GlobalMenuButton.cs" />
     <Compile Include="Assets\Script\LiveManager.cs" />
+    <Compile Include="Assets\Script\PushBackButton.cs" />
     <Compile Include="Assets\Script\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
