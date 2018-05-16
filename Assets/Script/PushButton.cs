@@ -14,5 +14,22 @@ public class PushButton : MonoBehaviour {
 		
 	}
 
+    void Onclick()
+    {
+        //現在のシーンを取得
+        GameStateManager.Instance.GetCurrentSceneName();
 
+        //Yesボタン押した場合
+        if(transform.name != null && transform.name == "Yes")
+        {
+
+        }
+
+        //Noボタン押した場合
+        if (transform.name != null && transform.name == "No")
+        {
+
+        }
+
+    }
 }
