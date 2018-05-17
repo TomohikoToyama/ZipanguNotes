@@ -103,9 +103,13 @@ public class GameStateManager : MonoBehaviour {
             beforeScene = currentScene;
             currentScene = sceneName;
             SceneManager.LoadScene(sceneName);
-
         }
 
+        if ( currentScene == "Music")
+        {
+            currentScene = sceneName;
+            SceneManager.LoadScene(sceneName);
+        }
     }
 
     //戻るボタンが押された時のシーン遷移

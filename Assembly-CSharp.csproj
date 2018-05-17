@@ -55,11 +55,11 @@
      <Compile Include="Assets\Script\GameInit.cs" />
      <Compile Include="Assets\Script\GameStateManager.cs" />
      <Compile Include="Assets\Script\GlobalMenuButton.cs" />
-     <Compile Include="Assets\Script\LiveManager.cs" />
      <Compile Include="Assets\Script\PushBackButton.cs" />
      <Compile Include="Assets\Script\PushButton.cs" />
      <Compile Include="Assets\Script\PushPauseButton.cs" />
      <Compile Include="Assets\Script\SoundManager.cs" />
+     <Compile Include="Assets\Script\StageManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

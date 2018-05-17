@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LiveManager : MonoBehaviour {
+public class StageManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
