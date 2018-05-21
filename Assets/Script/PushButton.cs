@@ -14,10 +14,14 @@ public class PushButton : MonoBehaviour {
 		
 	}
 
-    void Onclick()
+    public void Onclick()
     {
+        string sceneName = GameStateManager.Instance.GetCurrentSceneName();
         //現在のシーンを取得
-        GameStateManager.Instance.GetCurrentSceneName();
+        if (sceneName == "Live")
+        {
+            GameStateManager.Instance.ChangeScene(sceneName);
+        }
 
         //Yesボタン押した場合
         if(transform.name != null && transform.name == "Yes")

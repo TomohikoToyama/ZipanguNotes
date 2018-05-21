@@ -98,7 +98,13 @@ public class GameStateManager : MonoBehaviour {
             SceneManager.LoadScene("Home");
         }
 
-     
+        //楽曲選択後の遷移
+        if ( currentScene == "Live")
+        {
+            sceneName = "Stage";
+            currentScene = sceneName;
+            SceneManager.LoadScene(sceneName);
+        }
         if ( currentScene == "Music")
         {
             currentScene = sceneName;
