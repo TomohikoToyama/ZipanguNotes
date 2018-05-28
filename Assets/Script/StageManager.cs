@@ -4,8 +4,31 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    //ライブがポーズ状態かのフラグ
+    public bool fPause = false;
+
+    protected static StageManager instance;
+
+    public static StageManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = (StageManager)FindObjectOfType(typeof(StageManager));
+
+                if (instance == null)
+                {
+                    Debug.LogError("GameStateManager Instance Error");
+                }
+            }
+
+            return instance;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
