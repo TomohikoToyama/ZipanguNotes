@@ -41,5 +41,10 @@ public class PushButton : MonoBehaviour {
             GameStateManager.Instance.ChangeScene(sceneName);
         }
 
+        //クリアボタン(デバッグ)
+        if (transform.name != null && transform.name == "LiveClear")
+        {
+            GameStateManager.Instance.ChangeScene("Result");
+        }
     }
 }
