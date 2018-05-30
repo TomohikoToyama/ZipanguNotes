@@ -17,14 +17,15 @@ public class PushButton : MonoBehaviour {
     public void Onclick()
     {
         string sceneName = GameStateManager.Instance.GetCurrentSceneName();
-        //現在のシーンを取得
         if (sceneName == "Live")
         {
-            GameStateManager.Instance.ChangeScene(sceneName);
+
+            GameStateManager.Instance.ChangeScene("Stage");
+
         }
 
         //再開ボタン押した場合
-        if(transform.name != null && transform.name == "Resume")
+        if (transform.name != null && transform.name == "Resume")
         {
 
         }
@@ -35,16 +36,24 @@ public class PushButton : MonoBehaviour {
             //諸々の処理
 
             //楽曲選択シーンに遷移
-            
-            sceneName = "Live";
+
+
             StageManager.Instance.fPause = false;
             GameStateManager.Instance.ChangeScene(sceneName);
         }
-
         //クリアボタン(デバッグ)
         if (transform.name != null && transform.name == "LiveClear")
         {
+            Debug.Log("クリアボタン");
             GameStateManager.Instance.ChangeScene("Result");
         }
-    }
+
+        if(sceneName == "Result")
+        {
+        
+            GameStateManager.Instance.ChangeScene("Live");
+
+        }
+
+  }
 }

@@ -111,6 +111,7 @@ public class GameStateManager : MonoBehaviour {
             SceneManager.LoadScene(sceneName);
         }
 
+        
         else
         {
             beforeScene = currentScene;
