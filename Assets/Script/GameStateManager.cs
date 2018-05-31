@@ -114,7 +114,9 @@ public class GameStateManager : MonoBehaviour {
         
         else
         {
-            beforeScene = currentScene;
+           
+                beforeScene = currentScene;
+            
             currentScene = sceneName;
             SceneManager.LoadScene(sceneName);
         }
@@ -124,6 +126,13 @@ public class GameStateManager : MonoBehaviour {
     //戻るボタンが押された時のシーン遷移
     public void BackScene()
     {
+        if(currentScene == "Live")
+        {
+            currentScene = "Home";
+            SceneManager.LoadScene(currentScene);
+        }
+
+
         currentScene = beforeScene;
         SceneManager.LoadScene(currentScene);
     }
