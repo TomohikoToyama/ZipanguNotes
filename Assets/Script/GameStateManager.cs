@@ -114,7 +114,7 @@ public class GameStateManager : MonoBehaviour {
         
         else
         {
-           
+           if(currentScene != "Resulst")
                 beforeScene = currentScene;
             
             currentScene = sceneName;
