@@ -27,7 +27,8 @@ public class PushButton : MonoBehaviour {
         //再開ボタン押した場合
         if (transform.name != null && transform.name == "Resume")
         {
-
+            StageManager.Instance.fPause = false;
+            transform.parent.gameObject.SetActive(false);
         }
 
         //中断ボタン押した場合
@@ -39,7 +40,8 @@ public class PushButton : MonoBehaviour {
 
 
             StageManager.Instance.fPause = false;
-            GameStateManager.Instance.ChangeScene(sceneName);
+            transform.parent.gameObject.SetActive(false);
+            GameStateManager.Instance.ChangeScene("Live");
         }
         //クリアボタン(デバッグ)
         if (transform.name != null && transform.name == "LiveClear")

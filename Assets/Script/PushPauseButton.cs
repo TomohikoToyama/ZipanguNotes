@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PushPauseButton : MonoBehaviour {
 
+    [SerializeField]
+    GameObject pausePopUp;
 
-	public void OnClick()
+   // [SerializeField]
+  //  GameObject fadeGuard;
+
+    public void OnClick()
     {
         if (StageManager.Instance.fPause == false)
         {
             StageManager.Instance.fPause = true;
-            
+            pausePopUp.SetActive(true);
+     //       fadeGuard.SetActive(true);
+
         }
 
     }
